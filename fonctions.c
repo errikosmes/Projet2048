@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ncurses.h>
 #include "entete.h"
 
 
@@ -334,14 +333,9 @@ int** cree_copie(int** GRILLE){
 
 
 void tour_de_jeu(int** GRILLE){
-	char ch='\0';
-
-	do{
-		ch = getch();
-	} while (ch=='\0');
 	
-	switch(ch) { // the real value
-		case 'w':
+	switch(getchar()) { // the real value
+		case 'z':
 			printf("up\n");
 			deplacement_haut(GRILLE);
 			break;
@@ -349,13 +343,17 @@ void tour_de_jeu(int** GRILLE){
 			printf("down\n");
 			deplacement_bas(GRILLE);
 			break;
-		case 'a':
+		case 'd':
 			printf("right\n");
 			deplacement_droite(GRILLE);
 			break;
-		case 'd':
+		case 'q':
 			printf("left\n");
 			deplacement_gauche(GRILLE);
 			break;
+		default:
+			getchar();
+			tour_de_jeu(GRILLE);
 	}
+	getchar();
 }
