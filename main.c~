@@ -1,0 +1,16 @@
+#include "entete.h"
+
+
+int main(){
+  srand(time(NULL));
+  int**  GRILLE=NULL;
+  GRILLE=init_grille();
+  afficher_grille(GRILLE);
+  printf("\n");
+  while(etat_du_jeux(GRILLE)==0){
+    
+
+
+  }
+  return 0;
+}
