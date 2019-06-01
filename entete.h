@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <ncurses.h>
 
 int rand_a_b(int a, int b);
 void pop_up(int** GRILLE);
