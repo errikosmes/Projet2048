@@ -134,7 +134,7 @@ int rand_a_b(int a, int b){
 void pop_up(int** GRILLE){
   /*Fonction faisant apparaitre un 2 (7 chances sur 8) ou un 4 (1 chance sur 8) au hasard dans la GRILLE*/
 	int num, i=0, j=0, indice_case=0, nb_cases_vides=0, case_a_popup;
-  int k=rand_a_b(0,19);
+  int k=rand_a_b(0,20);
   
   if(k<18) num=2;
   else num=4;
