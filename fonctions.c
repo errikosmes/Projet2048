@@ -149,7 +149,8 @@ void pop_up(int** GRILLE){
 
 	for(i=0; i<4; i++){
 		for(j=0; j<4; j++){
-			if (case_a_popup == indice_case) {	
+			if (case_a_popup == indice_case && GRILLE[i][j]!= 0) case_a_popup++;
+			else if (case_a_popup == indice_case) {	
 				GRILLE[i][j]=num;
 			}
 			indice_case++;
