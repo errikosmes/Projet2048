@@ -222,6 +222,7 @@ void pop_up(int** GRILLE){
   }
   GRILLE[i][j]=num;
 
+<<<<<<< HEAD
 	while(indice_case<k){
 		for(i=0; i<4; i++){
 			for(j=0; j<4; j++){
@@ -233,6 +234,12 @@ void pop_up(int** GRILLE){
 					else k++;
 				}
 				indice_case++; 
+=======
+	for(i=0; i<4; i++){
+		for(j=0; j<4; j++){
+			if (case_a_popup == indice_case) {	
+				GRILLE[i][j]=num;
+>>>>>>> parent of dca5174... fix cas ou le pop up est dans une case pas vide
 			}
 		}
 	}
