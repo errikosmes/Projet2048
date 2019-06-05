@@ -23,9 +23,9 @@ GtkWidget *g_lbl_grid_3_2;
 GtkWidget *g_lbl_grid_3_3;
 
 int main(int argc, char *argv[]){
-    
 
-    GtkBuilder      *builder; 
+
+    GtkBuilder      *builder;
     GtkWidget       *window;
 
     gtk_init(&argc, &argv);
@@ -34,7 +34,7 @@ int main(int argc, char *argv[]){
     gtk_builder_add_from_file (builder, "glade/window_main.glade", NULL);
     window = GTK_WIDGET(gtk_builder_get_object(builder, "window_main"));
     gtk_builder_connect_signals(builder, NULL);
-    
+
     // get pointers to the labels
     g_lbl_hello = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_hello"));
     g_lbl_count = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_count"));
@@ -63,7 +63,7 @@ void on_btn_hello_clicked()
     char str_count[30] = {0};
 
     printf("Entered");
-    
+
     gtk_label_set_text(GTK_LABEL(g_lbl_hello), "Hello, world!");
     count++;
     sprintf(str_count, "%d", count);
@@ -82,7 +82,7 @@ gboolean on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data
     char str_label[30] = {0};
   switch (event->keyval){
     case GDK_KEY_z:
-        
+
         sprintf(str_label, "%d", 12);
         gtk_label_set_text(GTK_LABEL(g_lbl_grid_0_3), str_label);
         printf("key pressed: %s\n", "z");
@@ -97,7 +97,46 @@ gboolean on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data
         printf("key pressed: %s\n", "d");
         break;
     default:
-        return FALSE; 
+        return FALSE;
   }
-  return FALSE; 
+  return FALSE;
+}
+
+void affichage_grille(int** GRILLE){
+
+  sprintf(str_label, "%d", GRILLE[0][0]);
+  gtk_label_set_text(GTK_LABEL(g_lbl_grid_0_0), str_label);
+  sprintf(str_label, "%d", GRILLE[0][1]);
+  gtk_label_set_text(GTK_LABEL(g_lbl_grid_0_1), str_label);
+  sprintf(str_label, "%d", GRILLE[0][2]);
+  gtk_label_set_text(GTK_LABEL(g_lbl_grid_0_2), str_label);
+  sprintf(str_label, "%d", GRILLE[0][3]);
+  gtk_label_set_text(GTK_LABEL(g_lbl_grid_0_3), str_label);
+
+  sprintf(str_label, "%d", GRILLE[1][0]);
+  gtk_label_set_text(GTK_LABEL(g_lbl_grid_1_0), str_label);
+  sprintf(str_label, "%d", GRILLE[1][1]);
+  gtk_label_set_text(GTK_LABEL(g_lbl_grid_1_1), str_label);
+  sprintf(str_label, "%d", GRILLE[1][2]);
+  gtk_label_set_text(GTK_LABEL(g_lbl_grid_1_2), str_label);
+  sprintf(str_label, "%d", GRILLE[1][3]);
+  gtk_label_set_text(GTK_LABEL(g_lbl_grid_1_3), str_label);
+
+  sprintf(str_label, "%d", GRILLE[2][0]);
+  gtk_label_set_text(GTK_LABEL(g_lbl_grid_2_0), str_label);
+  sprintf(str_label, "%d", GRILLE[2][1]);
+  gtk_label_set_text(GTK_LABEL(g_lbl_grid_2_1), str_label);
+  sprintf(str_label, "%d", GRILLE[2][2]);
+  gtk_label_set_text(GTK_LABEL(g_lbl_grid_2_2), str_label);
+  sprintf(str_label, "%d", GRILLE[2][3]);
+  gtk_label_set_text(GTK_LABEL(g_lbl_grid_2_3), str_label);
+
+  sprintf(str_label, "%d", GRILLE[3][0]);
+  gtk_label_set_text(GTK_LABEL(g_lbl_grid_3_0), str_label);
+  sprintf(str_label, "%d", GRILLE[3][1]);
+  gtk_label_set_text(GTK_LABEL(g_lbl_grid_3_1), str_label);
+  sprintf(str_label, "%d", GRILLE[3][2]);
+  gtk_label_set_text(GTK_LABEL(g_lbl_grid_3_2), str_label);
+  sprintf(str_label, "%d", GRILLE[3][3]);
+  gtk_label_set_text(GTK_LABEL(g_lbl_grid_3_3), str_label);
 }
