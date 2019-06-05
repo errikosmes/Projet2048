@@ -49,8 +49,6 @@ int main(int argc, char *argv[]){
 
     gtk_widget_show(window);
 
-
-
     gtk_main();
 
     return 0;
@@ -80,24 +78,24 @@ void on_window_main_destroy()
 
 gboolean on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data){
     char str_label[30] = {0};
-  switch (event->keyval){
-    case GDK_KEY_z:
-        
-        sprintf(str_label, "%d", 12);
-        gtk_label_set_text(GTK_LABEL(g_lbl_grid_0_3), str_label);
-        printf("key pressed: %s\n", "z");
-        break;
-    case GDK_KEY_q:
-        printf("key pressed: %s\n", "q");
-        break;
-    case GDK_KEY_s:
-        printf("key pressed: %s\n", "s");
-        break;
-    case GDK_KEY_d:
-        printf("key pressed: %s\n", "d");
-        break;
-    default:
-        return FALSE; 
+    switch (event->keyval){
+        case GDK_KEY_z:
+            
+            sprintf(str_label, "%d", 12);
+            gtk_label_set_text(GTK_LABEL(g_lbl_grid_0_3), str_label);
+            printf("key pressed: %s\n", "z");
+            break;
+        case GDK_KEY_q:
+            printf("key pressed: %s\n", "q");
+            break;
+        case GDK_KEY_s:
+            printf("key pressed: %s\n", "s");
+            break;
+        case GDK_KEY_d:
+            printf("key pressed: %s\n", "d");
+            break;
+        default:
+            return FALSE; 
   }
   return FALSE; 
 }

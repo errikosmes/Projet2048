@@ -23,8 +23,11 @@
             <property name="can_focus">False</property>
             <property name="halign">center</property>
             <property name="valign">center</property>
-            <property name="label" translatable="yes">label1</property>
+            <property name="label" translatable="yes">JEU 2048</property>
             <property name="width_chars">85</property>
+            <attributes>
+              <attribute name="font-desc" value="TeX Gyre Adventor Bold 30"/>
+            </attributes>
           </object>
           <packing>
             <property name="y">25</property>
@@ -68,7 +71,7 @@
               <object class="GtkImage">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="pixbuf">../../../../Images/Capture d’écran de 2019-06-05 09-09-17.png</property>
+                <property name="pixbuf">../case.png</property>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -79,7 +82,7 @@
               <object class="GtkImage">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="pixbuf">../../../../Images/Capture d’écran de 2019-06-05 09-09-17.png</property>
+                <property name="pixbuf">../case.png</property>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -90,7 +93,7 @@
               <object class="GtkImage">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="pixbuf">../../../../Images/Capture d’écran de 2019-06-05 09-09-17.png</property>
+                <property name="pixbuf">../case.png</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -101,7 +104,7 @@
               <object class="GtkImage">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="pixbuf">../../../../Images/Capture d’écran de 2019-06-05 09-09-17.png</property>
+                <property name="pixbuf">../case.png</property>
               </object>
               <packing>
                 <property name="left_attach">2</property>
@@ -112,7 +115,7 @@
               <object class="GtkImage">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="pixbuf">../../../../Images/Capture d’écran de 2019-06-05 09-09-17.png</property>
+                <property name="pixbuf">../case.png</property>
               </object>
               <packing>
                 <property name="left_attach">3</property>
@@ -123,7 +126,7 @@
               <object class="GtkImage">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="pixbuf">../../../../Images/Capture d’écran de 2019-06-05 09-09-17.png</property>
+                <property name="pixbuf">../case.png</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -134,7 +137,7 @@
               <object class="GtkImage">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="pixbuf">../../../../Images/Capture d’écran de 2019-06-05 09-09-17.png</property>
+                <property name="pixbuf">../case.png</property>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -145,7 +148,7 @@
               <object class="GtkImage">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="pixbuf">../../../../Images/Capture d’écran de 2019-06-05 09-09-17.png</property>
+                <property name="pixbuf">../case.png</property>
               </object>
               <packing>
                 <property name="left_attach">2</property>
@@ -156,7 +159,7 @@
               <object class="GtkImage">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="pixbuf">../../../../Images/Capture d’écran de 2019-06-05 09-09-17.png</property>
+                <property name="pixbuf">../case.png</property>
               </object>
               <packing>
                 <property name="left_attach">3</property>
@@ -167,7 +170,7 @@
               <object class="GtkImage">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="pixbuf">../../../../Images/Capture d’écran de 2019-06-05 09-09-17.png</property>
+                <property name="pixbuf">../case.png</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -178,7 +181,7 @@
               <object class="GtkImage">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="pixbuf">../../../../Images/Capture d’écran de 2019-06-05 09-09-17.png</property>
+                <property name="pixbuf">../case.png</property>
               </object>
               <packing>
                 <property name="left_attach">2</property>
@@ -189,7 +192,7 @@
               <object class="GtkImage">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="pixbuf">../../../../Images/Capture d’écran de 2019-06-05 09-09-17.png</property>
+                <property name="pixbuf">../case.png</property>
               </object>
               <packing>
                 <property name="left_attach">3</property>
@@ -200,7 +203,7 @@
               <object class="GtkImage">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="pixbuf">../../../../Images/Capture d’écran de 2019-06-05 09-09-17.png</property>
+                <property name="pixbuf">../case.png</property>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -211,7 +214,7 @@
               <object class="GtkImage">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="pixbuf">../../../../Images/Capture d’écran de 2019-06-05 09-09-17.png</property>
+                <property name="pixbuf">../case.png</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -222,7 +225,7 @@
               <object class="GtkImage">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="pixbuf">../../../../Images/Capture d’écran de 2019-06-05 09-09-17.png</property>
+                <property name="pixbuf">../case.png</property>
               </object>
               <packing>
                 <property name="left_attach">2</property>
@@ -233,7 +236,7 @@
               <object class="GtkImage">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="pixbuf">../../../../Images/Capture d’écran de 2019-06-05 09-09-17.png</property>
+                <property name="pixbuf">../case.png</property>
               </object>
               <packing>
                 <property name="left_attach">3</property>
@@ -333,7 +336,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="valign">baseline</property>
-                <property name="label" translatable="yes">lable</property>
                 <property name="justify">center</property>
                 <property name="ellipsize">middle</property>
                 <property name="width_chars">3</property>
@@ -354,7 +356,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="valign">baseline</property>
-                <property name="label" translatable="yes">label</property>
                 <property name="justify">center</property>
                 <property name="ellipsize">middle</property>
                 <property name="width_chars">3</property>
@@ -375,7 +376,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="valign">baseline</property>
-                <property name="label" translatable="yes">label</property>
                 <property name="justify">center</property>
                 <property name="ellipsize">middle</property>
                 <property name="width_chars">3</property>
@@ -396,7 +396,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="valign">baseline</property>
-                <property name="label" translatable="yes">label</property>
                 <property name="justify">center</property>
                 <property name="ellipsize">middle</property>
                 <property name="width_chars">3</property>
@@ -417,7 +416,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="valign">baseline</property>
-                <property name="label" translatable="yes">label</property>
                 <property name="justify">center</property>
                 <property name="ellipsize">middle</property>
                 <property name="width_chars">3</property>
@@ -438,7 +436,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="valign">baseline</property>
-                <property name="label" translatable="yes">label</property>
                 <property name="justify">center</property>
                 <property name="ellipsize">middle</property>
                 <property name="width_chars">3</property>
@@ -459,7 +456,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="valign">baseline</property>
-                <property name="label" translatable="yes">label</property>
                 <property name="justify">center</property>
                 <property name="ellipsize">middle</property>
                 <property name="width_chars">3</property>
@@ -480,7 +476,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="valign">baseline</property>
-                <property name="label" translatable="yes">label</property>
                 <property name="justify">center</property>
                 <property name="ellipsize">middle</property>
                 <property name="width_chars">3</property>
@@ -501,7 +496,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="valign">baseline</property>
-                <property name="label" translatable="yes">label</property>
                 <property name="justify">center</property>
                 <property name="ellipsize">middle</property>
                 <property name="width_chars">3</property>
@@ -522,7 +516,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="valign">baseline</property>
-                <property name="label" translatable="yes">label</property>
                 <property name="justify">center</property>
                 <property name="ellipsize">middle</property>
                 <property name="width_chars">3</property>
@@ -543,7 +536,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="valign">baseline</property>
-                <property name="label" translatable="yes">label</property>
                 <property name="justify">center</property>
                 <property name="ellipsize">middle</property>
                 <property name="width_chars">3</property>
@@ -564,7 +556,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="valign">baseline</property>
-                <property name="label" translatable="yes">label</property>
                 <property name="justify">center</property>
                 <property name="ellipsize">middle</property>
                 <property name="width_chars">3</property>
