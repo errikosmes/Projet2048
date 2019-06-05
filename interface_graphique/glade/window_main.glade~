@@ -255,18 +255,20 @@
             <property name="row_homogeneous">True</property>
             <property name="column_homogeneous">True</property>
             <child>
-              <object class="GtkLabel" id="lbl_grid_0_4">
+              <object class="GtkLabel" id="lbl_grid_0_0">
                 <property name="width_request">22</property>
                 <property name="height_request">24</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">baseline</property>
                 <property name="valign">baseline</property>
-                <property name="use_markup">True</property>
                 <property name="justify">center</property>
                 <property name="ellipsize">middle</property>
                 <property name="width_chars">3</property>
                 <property name="max_width_chars">3</property>
+                <attributes>
+                  <attribute name="font-desc" value="TeX Gyre Adventor Bold 20"/>
+                </attributes>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -274,13 +276,12 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="lbl_grid_0_0">
+              <object class="GtkLabel" id="lbl_grid_0_1">
                 <property name="width_request">22</property>
                 <property name="height_request">24</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="valign">baseline</property>
-                <property name="label" translatable="yes">label</property>
                 <property name="justify">center</property>
                 <property name="ellipsize">middle</property>
                 <property name="width_chars">3</property>
@@ -298,7 +299,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="valign">baseline</property>
-                <property name="label" translatable="yes">label</property>
                 <property name="justify">center</property>
                 <property name="ellipsize">middle</property>
                 <property name="width_chars">3</property>
@@ -316,7 +316,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="valign">baseline</property>
-                <property name="label" translatable="yes">label</property>
                 <property name="justify">center</property>
                 <property name="ellipsize">middle</property>
                 <property name="width_chars">3</property>
@@ -328,17 +327,20 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="lbl_grid_0_5">
+              <object class="GtkLabel" id="lbl_grid_1_0">
                 <property name="width_request">22</property>
                 <property name="height_request">24</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="valign">baseline</property>
-                <property name="label" translatable="yes">label</property>
+                <property name="label" translatable="yes">lable</property>
                 <property name="justify">center</property>
                 <property name="ellipsize">middle</property>
                 <property name="width_chars">3</property>
                 <property name="max_width_chars">3</property>
+                <attributes>
+                  <attribute name="font-desc" value="TeX Gyre Adventor Bold 20"/>
+                </attributes>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -346,7 +348,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="lbl_grid_0_6">
+              <object class="GtkLabel" id="lbl_grid_2_0">
                 <property name="width_request">22</property>
                 <property name="height_request">24</property>
                 <property name="visible">True</property>
@@ -357,6 +359,30 @@
                 <property name="ellipsize">middle</property>
                 <property name="width_chars">3</property>
                 <property name="max_width_chars">3</property>
+                <attributes>
+                  <attribute name="font-desc" value="TeX Gyre Adventor Bold 20"/>
+                </attributes>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="lbl_grid_1_1">
+                <property name="width_request">22</property>
+                <property name="height_request">24</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="valign">baseline</property>
+                <property name="label" translatable="yes">label</property>
+                <property name="justify">center</property>
+                <property name="ellipsize">middle</property>
+                <property name="width_chars">3</property>
+                <property name="max_width_chars">3</property>
+                <attributes>
+                  <attribute name="font-desc" value="TeX Gyre Adventor Bold 20"/>
+                </attributes>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -364,7 +390,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="lbl_grid_0_7">
+              <object class="GtkLabel" id="lbl_grid_1_2">
                 <property name="width_request">22</property>
                 <property name="height_request">24</property>
                 <property name="visible">True</property>
@@ -375,6 +401,9 @@
                 <property name="ellipsize">middle</property>
                 <property name="width_chars">3</property>
                 <property name="max_width_chars">3</property>
+                <attributes>
+                  <attribute name="font-desc" value="TeX Gyre Adventor Bold 20"/>
+                </attributes>
               </object>
               <packing>
                 <property name="left_attach">2</property>
@@ -382,7 +411,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="lbl_grid_0_8">
+              <object class="GtkLabel" id="lbl_grid_1_3">
                 <property name="width_request">22</property>
                 <property name="height_request">24</property>
                 <property name="visible">True</property>
@@ -393,6 +422,9 @@
                 <property name="ellipsize">middle</property>
                 <property name="width_chars">3</property>
                 <property name="max_width_chars">3</property>
+                <attributes>
+                  <attribute name="font-desc" value="TeX Gyre Adventor Bold 20"/>
+                </attributes>
               </object>
               <packing>
                 <property name="left_attach">3</property>
@@ -400,7 +432,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="lbl_grid_0_9">
+              <object class="GtkLabel" id="lbl_grid_2_1">
                 <property name="width_request">22</property>
                 <property name="height_request">24</property>
                 <property name="visible">True</property>
@@ -411,24 +443,9 @@
                 <property name="ellipsize">middle</property>
                 <property name="width_chars">3</property>
                 <property name="max_width_chars">3</property>
-              </object>
-              <packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">2</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkLabel" id="lbl_grid_0_10">
-                <property name="width_request">22</property>
-                <property name="height_request">24</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="valign">baseline</property>
-                <property name="label" translatable="yes">label</property>
-                <property name="justify">center</property>
-                <property name="ellipsize">middle</property>
-                <property name="width_chars">3</property>
-                <property name="max_width_chars">3</property>
+                <attributes>
+                  <attribute name="font-desc" value="TeX Gyre Adventor Bold 20"/>
+                </attributes>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -436,7 +453,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="lbl_grid_0_11">
+              <object class="GtkLabel" id="lbl_grid_2_2">
                 <property name="width_request">22</property>
                 <property name="height_request">24</property>
                 <property name="visible">True</property>
@@ -447,6 +464,9 @@
                 <property name="ellipsize">middle</property>
                 <property name="width_chars">3</property>
                 <property name="max_width_chars">3</property>
+                <attributes>
+                  <attribute name="font-desc" value="TeX Gyre Adventor Bold 20"/>
+                </attributes>
               </object>
               <packing>
                 <property name="left_attach">2</property>
@@ -454,7 +474,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="lbl_grid_0_12">
+              <object class="GtkLabel" id="lbl_grid_2_3">
                 <property name="width_request">22</property>
                 <property name="height_request">24</property>
                 <property name="visible">True</property>
@@ -465,6 +485,9 @@
                 <property name="ellipsize">middle</property>
                 <property name="width_chars">3</property>
                 <property name="max_width_chars">3</property>
+                <attributes>
+                  <attribute name="font-desc" value="TeX Gyre Adventor Bold 20"/>
+                </attributes>
               </object>
               <packing>
                 <property name="left_attach">3</property>
@@ -472,7 +495,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="lbl_grid_0_13">
+              <object class="GtkLabel" id="lbl_grid_3_0">
                 <property name="width_request">22</property>
                 <property name="height_request">24</property>
                 <property name="visible">True</property>
@@ -483,6 +506,9 @@
                 <property name="ellipsize">middle</property>
                 <property name="width_chars">3</property>
                 <property name="max_width_chars">3</property>
+                <attributes>
+                  <attribute name="font-desc" value="TeX Gyre Adventor Bold 20"/>
+                </attributes>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -490,7 +516,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="lbl_grid_0_14">
+              <object class="GtkLabel" id="lbl_grid_3_1">
                 <property name="width_request">22</property>
                 <property name="height_request">24</property>
                 <property name="visible">True</property>
@@ -501,6 +527,9 @@
                 <property name="ellipsize">middle</property>
                 <property name="width_chars">3</property>
                 <property name="max_width_chars">3</property>
+                <attributes>
+                  <attribute name="font-desc" value="TeX Gyre Adventor Bold 20"/>
+                </attributes>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -508,7 +537,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="lbl_grid_0_15">
+              <object class="GtkLabel" id="lbl_grid_3_2">
                 <property name="width_request">22</property>
                 <property name="height_request">24</property>
                 <property name="visible">True</property>
@@ -519,6 +548,9 @@
                 <property name="ellipsize">middle</property>
                 <property name="width_chars">3</property>
                 <property name="max_width_chars">3</property>
+                <attributes>
+                  <attribute name="font-desc" value="TeX Gyre Adventor Bold 20"/>
+                </attributes>
               </object>
               <packing>
                 <property name="left_attach">2</property>
@@ -526,7 +558,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="lbl_grid_0_16">
+              <object class="GtkLabel" id="lbl_grid_3_3">
                 <property name="width_request">22</property>
                 <property name="height_request">24</property>
                 <property name="visible">True</property>
@@ -537,6 +569,9 @@
                 <property name="ellipsize">middle</property>
                 <property name="width_chars">3</property>
                 <property name="max_width_chars">3</property>
+                <attributes>
+                  <attribute name="font-desc" value="TeX Gyre Adventor Bold 20"/>
+                </attributes>
               </object>
               <packing>
                 <property name="left_attach">3</property>

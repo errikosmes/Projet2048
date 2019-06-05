@@ -3,15 +3,27 @@
 
 gboolean on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data);
 
-
 GtkWidget *g_lbl_hello;
 GtkWidget *g_lbl_count;
 GtkWidget *g_lbl_grid_0_0;
-GtkWidget *g_lbl_grid_0_4;
+GtkWidget *g_lbl_grid_0_1;
+GtkWidget *g_lbl_grid_0_2;
+GtkWidget *g_lbl_grid_0_3;
+GtkWidget *g_lbl_grid_1_0;
+GtkWidget *g_lbl_grid_1_1;
+GtkWidget *g_lbl_grid_1_2;
+GtkWidget *g_lbl_grid_1_3;
+GtkWidget *g_lbl_grid_2_0;
+GtkWidget *g_lbl_grid_2_1;
+GtkWidget *g_lbl_grid_2_2;
+GtkWidget *g_lbl_grid_2_3;
+GtkWidget *g_lbl_grid_3_0;
+GtkWidget *g_lbl_grid_3_1;
+GtkWidget *g_lbl_grid_3_2;
+GtkWidget *g_lbl_grid_3_3;
 
-int main(int argc, char *argv[])
-{
-    char str_label[30] = {0};
+int main(int argc, char *argv[]){
+    
 
     GtkBuilder      *builder; 
     GtkWidget       *window;
@@ -20,15 +32,16 @@ int main(int argc, char *argv[])
 
     builder = gtk_builder_new();
     gtk_builder_add_from_file (builder, "glade/window_main.glade", NULL);
-
     window = GTK_WIDGET(gtk_builder_get_object(builder, "window_main"));
     gtk_builder_connect_signals(builder, NULL);
     
-    // get pointers to the two labels
+    // get pointers to the labels
     g_lbl_hello = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_hello"));
     g_lbl_count = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_count"));
     g_lbl_grid_0_0 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_0_0"));
-    g_lbl_grid_0_4 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_0_4"));
+    g_lbl_grid_0_1 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_0_1"));
+    g_lbl_grid_0_2 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_0_2"));
+    g_lbl_grid_0_3 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_0_3"));
 
     g_object_unref(builder);
 
@@ -36,8 +49,6 @@ int main(int argc, char *argv[])
 
     gtk_widget_show(window);
 
-    sprintf(str_label, "%d", 12);
-    gtk_label_set_text(GTK_LABEL(g_lbl_grid_0_4), str_label);
 
 
     gtk_main();
@@ -50,6 +61,8 @@ void on_btn_hello_clicked()
 {
     static unsigned int count = 0;
     char str_count[30] = {0};
+
+    printf("Entered");
     
     gtk_label_set_text(GTK_LABEL(g_lbl_hello), "Hello, world!");
     count++;
@@ -66,10 +79,14 @@ void on_window_main_destroy()
 }
 
 gboolean on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data){
+    char str_label[30] = {0};
   switch (event->keyval){
     case GDK_KEY_z:
-      printf("key pressed: %s\n", "z");
-      break;
+        
+        sprintf(str_label, "%d", 12);
+        gtk_label_set_text(GTK_LABEL(g_lbl_grid_0_3), str_label);
+        printf("key pressed: %s\n", "z");
+        break;
     case GDK_KEY_q:
         printf("key pressed: %s\n", "q");
         break;
@@ -80,7 +97,7 @@ gboolean on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data
         printf("key pressed: %s\n", "d");
         break;
     default:
-      return FALSE; 
+        return FALSE; 
   }
   return FALSE; 
 }

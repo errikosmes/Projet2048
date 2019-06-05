@@ -1,5 +1,5 @@
 # change application name here (executable output name)
-TARGET=test
+TARGET=Jeu_2048
 
 # compiler
 CC=gcc
