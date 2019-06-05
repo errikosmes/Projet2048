@@ -2,20 +2,21 @@
 #include <stdlib.h>
 #include "entete.h"
 
+
 void fusion (int** GRILLE,int i1, int j1, int i2, int j2){
 	/* cette fonction met la case deux dans la case 1. si dans la case 1 il y a une 0, on décale juste le nombre, sinon on le multiplie par deux*/
-	
+
 	/*si la fusion n'est pas possible*/
 	if (GRILLE[i1][j1]!=0 && GRILLE[i1][j1]!=GRILLE[i2][j2]){
 		return;
 	}
-	
+
 	/*si on fait un dépalcement dans une case vide*/
 	if (GRILLE[i1][j1]==0){
 		GRILLE[i1][j1]=GRILLE[i2][j2];
 		GRILLE[i2][j2]=0;
 	}
-	
+
 	/* sinon fait une fusion avec une autre case et augmentation du score*/
 	else {
 		GRILLE[i1][j1]=GRILLE[i2][j2]+GRILLE[i1][j1];
@@ -29,7 +30,7 @@ void fusion (int** GRILLE,int i1, int j1, int i2, int j2){
 /*-------------------------------------------------------------------*/
 
 void deplacement_case_bas(int** GRILLE, int i, int j, int** TEST){
-	/* cette fonction effectue si nessesaire le déplacement ou la fusion de la case placé en parametre*/	
+	/* cette fonction effectue si nessesaire le déplacement ou la fusion de la case placé en parametre*/
 	int i1=i+1;
 	if (i1>3 || (GRILLE[i1][j]==0 && GRILLE[i][j]==0) || (GRILLE[i1][j]!=0 && GRILLE[i][j]!=GRILLE[i1][j]) || TEST[i1][j]==1){
 		return;
@@ -43,12 +44,12 @@ void deplacement_case_bas(int** GRILLE, int i, int j, int** TEST){
 		deplacement_case_bas(GRILLE,i1,j, TEST);
 	}
 }
-	
+
 
 void deplacement_bas(int **GRILLE, int** TEST){
 	/* cette fonction effectue le parcours d'une grille placé en parametre*/
 	TEST=init_test();
-	int i,j;	
+	int i,j;
 	for(j=0; j<4; j++){
 		for(i=3; i>=0; i--){
 			deplacement_case_bas(GRILLE, i, j, TEST);
@@ -109,7 +110,7 @@ void deplacement_gauche(int **GRILLE,int** TEST){
 	/* cette fonction effectue le parcours d'une grille placé en parametre*/
 	TEST=init_test();
 	int i,j;
-        
+
 	for(i=0; i<4; i++){
 		for(j=0; j<4; j++){
 			deplacement_case_gauche(GRILLE, i, j,TEST);
@@ -151,7 +152,7 @@ void deplacement_droite(int **GRILLE,int** TEST){
 }
 
 
-	
+
 /*-------------------------------------------------------------------*/
 
 
@@ -166,84 +167,31 @@ int rand_a_b(int a, int b){
 
 
 void pop_up(int** GRILLE){
-  /*Fonction faisant apparaitre un 2 (9 chances sur 10) ou un 4 (1 chance sur 10) au hasard dans la GRILLE*/
-
-  int num;
-  int i=0;
-  int j=0;
+	/*Fonction faisant apparaitre un 2 (7 chances sur 8) ou un 4 (1 chance sur 8) au hasard dans la GRILLE*/
+	int num, i=0, j=0, indice_case=0, nb_cases_vides=0, case_a_popup;
   int k=rand_a_b(0,20);
 
   if(k<18) num=2;
   else num=4;
-  while(k!=0){
-	if(GRILLE[i][j]==0){
-	  k--;
-	}
-	i++;
-	if(i==4){
-	  i=0;
-	  j++;  
-	}
-	if(j==4)
-	  j=0;
-   }
-   if(i!=0){
-     i--;
-   }
-   else {
-     j--;
-     i=3;
-   }
 
-   
-   GRILLE[i][j]=num;
-}
-
-   /*Fonction faisant apparaitre un 2 (7 chances sur 8) ou un 4 (1 chance sur 8) au hasard dans la GRILLE*/
-   /*
-  int num, i=0, j=0, indice_case=0;
-  int k=rand_a_b(0,19);
-  
-  if(k<18) num=2;
-  else num=4;
-  
-  while(k!=0){
-	if(GRILLE[i][j]==0){
-	  k--;
-	}
-	
-	j++;
-	if(j==4){
-	  j=0;
-	  i++;  
-	}
-	if(i==4)
-	  i=0;
-  }
-  GRILLE[i][j]=num;
-
-<<<<<<< HEAD
-	while(indice_case<k){
-		for(i=0; i<4; i++){
-			for(j=0; j<4; j++){
-				if (indice_case == k ){
-					if (GRILLE[i][j]!=0) {
-						GRILLE[i][j]=num;
-						return;
-					}
-					else k++;
-				}
-				indice_case++; 
-=======
 	for(i=0; i<4; i++){
 		for(j=0; j<4; j++){
-			if (case_a_popup == indice_case) {	
-				GRILLE[i][j]=num;
->>>>>>> parent of dca5174... fix cas ou le pop up est dans une case pas vide
-			}
+			if (GRILLE[i][j] == 0) nb_cases_vides++;
 		}
 	}
-}*/
+
+	case_a_popup = rand_a_b(0,nb_cases_vides);
+
+	for(i=0; i<4; i++){
+		for(j=0; j<4; j++){
+			if (case_a_popup == indice_case && GRILLE[i][j]!= 0) case_a_popup++;
+			else if (case_a_popup == indice_case) {
+				GRILLE[i][j]=num;
+			}
+			indice_case++;
+		}
+	}
+}
 
 
 
@@ -291,7 +239,7 @@ int etat_du_jeu(int** GRILLE, int** TEST){
 	}
 
 	/*Cas perdu*/
-	if ((deplacement_possible_gauche(GRILLE,TEST) != 1) && (deplacement_possible_droite(GRILLE,TEST) != 1) 
+	if ((deplacement_possible_gauche(GRILLE,TEST) != 1) && (deplacement_possible_droite(GRILLE,TEST) != 1)
 	    && (deplacement_possible_bas(GRILLE, TEST) != 1) && (deplacement_possible_haut(GRILLE,TEST) != 1)){
 		return -1;
 	}
@@ -374,68 +322,49 @@ int** cree_copie(int** GRILLE){
 
 
 void tour_de_jeu(int** GRILLE, int** TEST){
-		printf("ok");
-         switch(getchar()) { // the real value
+		char c,t;
+		scanf("%c",&c);
+		printf("%xc",c );
+		if (c!=0xac){
+			scanf("%c",&t);
+		}
+      switch(c) { // the real value
 			case 'z':
 				printf("up\n");
 				if (deplacement_possible_haut(GRILLE,TEST)){
-					printf("dep possible haut");
 					deplacement_haut(GRILLE, TEST);
 				}
-				else {
-					printf("dep impossible haut");
-					getchar();
-					tour_de_jeu(GRILLE, TEST);
-				}
+				else tour_de_jeu(GRILLE, TEST);
 				break;
 			case 's':
 				printf("down\n");
 				if (deplacement_possible_bas(GRILLE,TEST)){
-					printf("dep possible bas");
 					deplacement_bas(GRILLE, TEST);
-					printf("deplacem bas ok");
 				}
-				else {
-					printf("dep impossible bas");
-					getchar();
-					tour_de_jeu(GRILLE, TEST);
-				}
+				else tour_de_jeu(GRILLE, TEST);
 				break;
 			case 'd':
 				printf("right\n");
 				if (deplacement_possible_droite(GRILLE,TEST)){
-					printf("dep possible droite");
 					deplacement_droite(GRILLE,TEST);
 				}
-				else {
-					printf("dep impossible droite");
-					getchar();
-					tour_de_jeu(GRILLE, TEST);
-				}
+				else tour_de_jeu(GRILLE, TEST);
 				break;
 			case 'q':
 				printf("left\n");
 				if (deplacement_possible_gauche(GRILLE,TEST)){
-					printf("dep possible gauche");
 					deplacement_gauche(GRILLE, TEST);
 				}
-				else {
-					printf("dep impossible gauche");
-					getchar();
-					tour_de_jeu(GRILLE, TEST);
-				}
+				else tour_de_jeu(GRILLE, TEST);
 				break;
+
 			default:
 				printf("erreur");
-				getchar();
 				tour_de_jeu(GRILLE, TEST);
 				break;
 
-			
+
 		}
-		
-		/*getchar();*/
-printf("ok2");
 
 }
 
