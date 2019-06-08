@@ -2,6 +2,8 @@
 #include <gdk/gdkkeysyms.h>
 
 gboolean on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data);
+void affichage_grille(int** GRILLE);
+int** init_grille();
 
 GtkWidget *g_lbl_hello;
 GtkWidget *g_lbl_count;
@@ -21,6 +23,8 @@ GtkWidget *g_lbl_grid_3_0;
 GtkWidget *g_lbl_grid_3_1;
 GtkWidget *g_lbl_grid_3_2;
 GtkWidget *g_lbl_grid_3_3;
+
+int **GRILLE; 
 
 int main(int argc, char *argv[]){
     GtkBuilder      *builder;
@@ -53,6 +57,8 @@ int main(int argc, char *argv[]){
     g_lbl_grid_3_2 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_3_2"));
     g_lbl_grid_3_3 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_3_3"));
 
+    GRILLE = init_grille();
+    
     g_object_unref(builder);
 
     g_signal_connect (G_OBJECT (window), "key_press_event", G_CALLBACK (on_key_press), NULL);
@@ -85,11 +91,12 @@ void on_window_main_destroy(){
 }
 
 gboolean on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data){
+    char str_label[30] = {0};
+    
     switch (event->keyval){
         case GDK_KEY_z:
-            sprintf(str_label, "%d", 12);
-            gtk_label_set_text(GTK_LABEL(g_lbl_grid_0_3), str_label);
             printf("key pressed: %s\n", "z");
+            affichage_grille(GRILLE);
             break;
         case GDK_KEY_q:
             printf("key pressed: %s\n", "q");
@@ -108,8 +115,9 @@ gboolean on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data
 
 void affichage_grille(int** GRILLE){
     char str_label[30] = {0};
+    printf("affichage");
 
-	sprintf(str_label, "%d", GRILLE[0][0]);
+	sprintf(str_label, "%d", 12);
 	gtk_label_set_text(GTK_LABEL(g_lbl_grid_0_0), str_label);
 	sprintf(str_label, "%d", GRILLE[0][1]);
 	gtk_label_set_text(GTK_LABEL(g_lbl_grid_0_1), str_label);
@@ -144,4 +152,20 @@ void affichage_grille(int** GRILLE){
 	gtk_label_set_text(GTK_LABEL(g_lbl_grid_3_2), str_label);
 	sprintf(str_label, "%d", GRILLE[3][3]);
 	gtk_label_set_text(GTK_LABEL(g_lbl_grid_3_3), str_label);
+}
+
+int** init_grille(){
+  /*Fonction initialisant la GRILLE avec deux nombres (2 ou 4) et des 0 ailleurs*/
+
+  int** GRILLE=(int**)malloc((4)*sizeof(int*));
+  int i,j;
+	for(i=0;i<4;i++){
+	GRILLE[i]=(int*)malloc((4)*sizeof(int));
+	}
+  for(i=0;i<4;i++){
+	for(j=0;j<4;j++){
+	    GRILLE[i][j]=0;
+	}
+  }
+  return GRILLE;
 }
