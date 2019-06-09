@@ -1,9 +1,12 @@
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
 #include <string.h>
+#include <time.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 gboolean on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data);
-void on_btn_hello_clicked();
+void on_btn_recommencer_clicked();
 void on_window_main_destroy();
 int** init_grille();
 void affichage_grille(int** GRILLE);
@@ -30,13 +33,15 @@ int etat_du_jeu(int** GRILLE, int** TEST);
 void tour_de_jeu(int** GRILLE, int** TEST);
 int** init_test();
 void free_test(int** TEST);
+void print_int_to_label(int valeur, GtkWidget* label);
+void print_int_to_grid_label(int valeur, GtkWidget* label);
+
+
 
 int **GRILLE;
 int **TEST;
 int SCORE;
 
-GtkWidget *g_lbl_hello;
-GtkWidget *g_lbl_count;
 GtkWidget *g_lbl_grid_0_0;
 GtkWidget *g_lbl_grid_0_1;
 GtkWidget *g_lbl_grid_0_2;
@@ -66,8 +71,6 @@ int main(int argc, char *argv[]){
     gtk_builder_connect_signals(builder, NULL);
 
     // get pointers to the labels
-    g_lbl_hello = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_hello"));
-    g_lbl_count = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_count"));
     g_lbl_grid_0_0 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_0_0"));
     g_lbl_grid_0_1 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_0_1"));
     g_lbl_grid_0_2 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_0_2"));
@@ -85,6 +88,7 @@ int main(int argc, char *argv[]){
     g_lbl_grid_3_2 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_3_2"));
     g_lbl_grid_3_3 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_3_3"));
 
+	srand(time(0)); 
     GRILLE = init_grille();
     affichage_grille(GRILLE);
     SCORE = 0;
@@ -101,7 +105,6 @@ int main(int argc, char *argv[]){
 }
 
 gboolean on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data){
-    char str_label[30] = {0};
     
     switch (event->keyval){
         case GDK_KEY_z:
@@ -148,18 +151,10 @@ gboolean on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data
 }
 
 // called when button is clicked
-void on_btn_hello_clicked(){
-    static unsigned int count = 0;
-    char str_count[30] = {0};
-
-    printf("Entered");
-
-    gtk_label_set_text(GTK_LABEL(g_lbl_hello), "Hello, world!");
-    count++;
-    sprintf(str_count, "%d", count);
-    gtk_label_set_text(GTK_LABEL(g_lbl_count), str_count);
-
-    gtk_label_set_text(GTK_LABEL(g_lbl_grid_0_0), str_count);
+void on_btn_recommencer_clicked(){
+    GRILLE = init_grille();
+    affichage_grille(GRILLE);
+    SCORE = 0;
 }
 
 // called when window is closed
@@ -188,60 +183,27 @@ int** init_grille(){
 }
 
 void affichage_grille(int** GRILLE){
-    char str_label[30] = {0};
-    printf("affichage");
 
-	sprintf(str_label, "%d", GRILLE[0][0]);
-    if (strcmp(str_label,"0") == 0) strcpy(str_label, " ");
-	gtk_label_set_text(GTK_LABEL(g_lbl_grid_0_0), str_label);
-	sprintf(str_label, "%d", GRILLE[0][1]);
-    if (strcmp(str_label,"0") == 0) strcpy(str_label, " ");
-	gtk_label_set_text(GTK_LABEL(g_lbl_grid_0_1), str_label);
-	sprintf(str_label, "%d", GRILLE[0][2]);
-    if (strcmp(str_label,"0") == 0) strcpy(str_label, " ");
-	gtk_label_set_text(GTK_LABEL(g_lbl_grid_0_2), str_label);
-	sprintf(str_label, "%d", GRILLE[0][3]);
-    if (strcmp(str_label,"0") == 0) strcpy(str_label, " ");
-	gtk_label_set_text(GTK_LABEL(g_lbl_grid_0_3), str_label);
+    print_int_to_grid_label(GRILLE[0][0], g_lbl_grid_0_0);
+	print_int_to_grid_label(GRILLE[0][1], g_lbl_grid_0_1);
+	print_int_to_grid_label(GRILLE[0][2], g_lbl_grid_0_2);
+	print_int_to_grid_label(GRILLE[0][3], g_lbl_grid_0_3);
 
-	sprintf(str_label, "%d", GRILLE[1][0]);
-    if (strcmp(str_label,"0") == 0) strcpy(str_label, " ");
-	gtk_label_set_text(GTK_LABEL(g_lbl_grid_1_0), str_label);
-	sprintf(str_label, "%d", GRILLE[1][1]);
-    if (strcmp(str_label,"0") == 0) strcpy(str_label, " ");
-	gtk_label_set_text(GTK_LABEL(g_lbl_grid_1_1), str_label);
-	sprintf(str_label, "%d", GRILLE[1][2]);
-    if (strcmp(str_label,"0") == 0) strcpy(str_label, " ");
-	gtk_label_set_text(GTK_LABEL(g_lbl_grid_1_2), str_label);
-	sprintf(str_label, "%d", GRILLE[1][3]);
-    if (strcmp(str_label,"0") == 0) strcpy(str_label, " ");
-	gtk_label_set_text(GTK_LABEL(g_lbl_grid_1_3), str_label);
+	print_int_to_grid_label(GRILLE[1][0], g_lbl_grid_1_0);
+	print_int_to_grid_label(GRILLE[1][1], g_lbl_grid_1_1);
+	print_int_to_grid_label(GRILLE[1][2], g_lbl_grid_1_2);
+	print_int_to_grid_label(GRILLE[1][3], g_lbl_grid_1_3);
 
-	sprintf(str_label, "%d", GRILLE[2][0]);
-    if (strcmp(str_label,"0") == 0) strcpy(str_label, " ");
-	gtk_label_set_text(GTK_LABEL(g_lbl_grid_2_0), str_label);
-	sprintf(str_label, "%d", GRILLE[2][1]);
-    if (strcmp(str_label,"0") == 0) strcpy(str_label, " ");
-	gtk_label_set_text(GTK_LABEL(g_lbl_grid_2_1), str_label);
-	sprintf(str_label, "%d", GRILLE[2][2]);
-    if (strcmp(str_label,"0") == 0) strcpy(str_label, " ");
-	gtk_label_set_text(GTK_LABEL(g_lbl_grid_2_2), str_label);
-	sprintf(str_label, "%d", GRILLE[2][3]);
-    if (strcmp(str_label,"0") == 0) strcpy(str_label, " ");
-	gtk_label_set_text(GTK_LABEL(g_lbl_grid_2_3), str_label);
+	print_int_to_grid_label(GRILLE[2][0], g_lbl_grid_2_0);
+	print_int_to_grid_label(GRILLE[2][1], g_lbl_grid_2_1);
+	print_int_to_grid_label(GRILLE[2][2], g_lbl_grid_2_2);
+	print_int_to_grid_label(GRILLE[2][3], g_lbl_grid_2_3);
 
-	sprintf(str_label, "%d", GRILLE[3][0]);
-    if (strcmp(str_label,"0") == 0) strcpy(str_label, " ");
-	gtk_label_set_text(GTK_LABEL(g_lbl_grid_3_0), str_label);
-	sprintf(str_label, "%d", GRILLE[3][1]);
-    if (strcmp(str_label,"0") == 0) strcpy(str_label, " ");
-	gtk_label_set_text(GTK_LABEL(g_lbl_grid_3_1), str_label);
-	sprintf(str_label, "%d", GRILLE[3][2]);
-    if (strcmp(str_label,"0") == 0) strcpy(str_label, " ");
-	gtk_label_set_text(GTK_LABEL(g_lbl_grid_3_2), str_label);
-	sprintf(str_label, "%d", GRILLE[3][3]);
-    if (strcmp(str_label,"0") == 0) strcpy(str_label, " ");
-	gtk_label_set_text(GTK_LABEL(g_lbl_grid_3_3), str_label);
+	print_int_to_grid_label(GRILLE[3][0], g_lbl_grid_3_0);
+	print_int_to_grid_label(GRILLE[3][1], g_lbl_grid_3_1);
+	print_int_to_grid_label(GRILLE[3][2], g_lbl_grid_3_2);
+	print_int_to_grid_label(GRILLE[3][3], g_lbl_grid_3_3);
+
 }
 
 void fusion (int** GRILLE,int i1, int j1, int i2, int j2){
@@ -403,7 +365,7 @@ void deplacement_droite(int **GRILLE,int** TEST){
 
 int rand_a_b(int a, int b){
 	/*Fonction générant un nombre random entre a et b*/
-	return rand()%(b-a) +a;
+	return rand()%(b-a)+a;
 }
 
 
@@ -554,6 +516,19 @@ void free_test(int** TEST){
 	free(TEST);
 }
 
+void print_int_to_grid_label(int valeur, GtkWidget* label){
+	char str_label[30] = {0};
 
+	sprintf(str_label, "%d", valeur);
+    if (strcmp(str_label,"0") == 0) strcpy(str_label, " ");
+	gtk_label_set_text(GTK_LABEL(label), str_label);
+}
+
+void print_int_to__label(int valeur, GtkWidget* label){
+	char str_label[30] = {0};
+
+	sprintf(str_label, "%d", valeur);
+	gtk_label_set_text(GTK_LABEL(label), str_label);
+}
 
 

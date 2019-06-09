@@ -16,49 +16,36 @@
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <child>
-          <object class="GtkLabel" id="lbl_hello">
-            <property name="width_request">352</property>
-            <property name="height_request">30</property>
+          <object class="GtkLabel">
+            <property name="width_request">247</property>
+            <property name="height_request">23</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>
             <property name="valign">center</property>
-            <property name="label" translatable="yes">JEU 2048</property>
-            <property name="width_chars">85</property>
+            <property name="label" translatable="yes">2048</property>
+            <property name="width_chars">42</property>
             <attributes>
-              <attribute name="font-desc" value="TeX Gyre Adventor Bold 30"/>
+              <attribute name="font-desc" value="TeX Gyre Adventor Bold 56"/>
             </attributes>
           </object>
           <packing>
-            <property name="y">25</property>
+            <property name="y">32</property>
           </packing>
         </child>
         <child>
-          <object class="GtkButton" id="btn_hello">
-            <property name="label" translatable="yes">button</property>
+          <object class="GtkButton" id="btn_recommencer">
+            <property name="label" translatable="yes">Recommencer</property>
             <property name="width_request">100</property>
             <property name="height_request">30</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
-            <signal name="clicked" handler="on_btn_hello_clicked" swapped="no"/>
+            <signal name="clicked" handler="on_btn_recommencer_clicked" swapped="no"/>
           </object>
           <packing>
-            <property name="x">283</property>
-            <property name="y">155</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkLabel" id="lbl_count">
-            <property name="width_request">100</property>
-            <property name="height_request">80</property>
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="label" translatable="yes">...</property>
-          </object>
-          <packing>
-            <property name="x">289</property>
-            <property name="y">68</property>
+            <property name="x">460</property>
+            <property name="y">134</property>
           </packing>
         </child>
         <child>
