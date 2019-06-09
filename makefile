@@ -1,4 +1,4 @@
-EXE=Jeu
+EXE=2048
 
 # compiler
 CC=gcc
