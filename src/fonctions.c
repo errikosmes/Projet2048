@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <gtk/gtk.h>
+#include <gdk/gdkkeysyms.h>
 #include "entete.h"
 
 
@@ -205,23 +207,51 @@ int** init_grille(){
 	}
   for(i=0;i<4;i++){
 	for(j=0;j<4;j++){
-	    GRILLE[i][j]=0;
+	    GRILLE[i][j]=2048;
 	}
   }
-  pop_up(GRILLE);
-  pop_up(GRILLE);
   return GRILLE;
 }
 
-void afficher_grille(int** GRILLE){
-  /*Fonction affichant la GRILLE*/
-	int i,j;
-  	for(i=0;i<4;i++){
-		for(j=0;j<4;j++){
-	  	printf("| %d ",GRILLE[i][j]);
-	}
-	printf("|\n");
-  	}
+void affichage_grille(int** GRILLE){
+    char str_label[30] = {0};
+    printf("affichage");
+
+	sprintf(str_label, "%d", 12);
+	gtk_label_set_text(GTK_LABEL(g_lbl_grid_0_0), str_label);
+	sprintf(str_label, "%d", GRILLE[0][1]);
+	gtk_label_set_text(GTK_LABEL(g_lbl_grid_0_1), str_label);
+	sprintf(str_label, "%d", GRILLE[0][2]);
+	gtk_label_set_text(GTK_LABEL(g_lbl_grid_0_2), str_label);
+	sprintf(str_label, "%d", GRILLE[0][3]);
+	gtk_label_set_text(GTK_LABEL(g_lbl_grid_0_3), str_label);
+
+	sprintf(str_label, "%d", GRILLE[1][0]);
+	gtk_label_set_text(GTK_LABEL(g_lbl_grid_1_0), str_label);
+	sprintf(str_label, "%d", GRILLE[1][1]);
+	gtk_label_set_text(GTK_LABEL(g_lbl_grid_1_1), str_label);
+	sprintf(str_label, "%d", GRILLE[1][2]);
+	gtk_label_set_text(GTK_LABEL(g_lbl_grid_1_2), str_label);
+	sprintf(str_label, "%d", GRILLE[1][3]);
+	gtk_label_set_text(GTK_LABEL(g_lbl_grid_1_3), str_label);
+
+	sprintf(str_label, "%d", GRILLE[2][0]);
+	gtk_label_set_text(GTK_LABEL(g_lbl_grid_2_0), str_label);
+	sprintf(str_label, "%d", GRILLE[2][1]);
+	gtk_label_set_text(GTK_LABEL(g_lbl_grid_2_1), str_label);
+	sprintf(str_label, "%d", GRILLE[2][2]);
+	gtk_label_set_text(GTK_LABEL(g_lbl_grid_2_2), str_label);
+	sprintf(str_label, "%d", GRILLE[2][3]);
+	gtk_label_set_text(GTK_LABEL(g_lbl_grid_2_3), str_label);
+
+	sprintf(str_label, "%d", GRILLE[3][0]);
+	gtk_label_set_text(GTK_LABEL(g_lbl_grid_3_0), str_label);
+	sprintf(str_label, "%d", GRILLE[3][1]);
+	gtk_label_set_text(GTK_LABEL(g_lbl_grid_3_1), str_label);
+	sprintf(str_label, "%d", GRILLE[3][2]);
+	gtk_label_set_text(GTK_LABEL(g_lbl_grid_3_2), str_label);
+	sprintf(str_label, "%d", GRILLE[3][3]);
+	gtk_label_set_text(GTK_LABEL(g_lbl_grid_3_3), str_label);
 }
 
 int etat_du_jeu(int** GRILLE, int** TEST){
@@ -389,3 +419,25 @@ void free_test(int** TEST){
 		}
 	free(TEST);
 }
+
+// called when button is clicked
+void on_btn_hello_clicked(){
+    static unsigned int count = 0;
+    char str_count[30] = {0};
+
+    printf("Entered");
+
+    gtk_label_set_text(GTK_LABEL(g_lbl_hello), "Hello, world!");
+    count++;
+    sprintf(str_count, "%d", count);
+    gtk_label_set_text(GTK_LABEL(g_lbl_count), str_count);
+
+    gtk_label_set_text(GTK_LABEL(g_lbl_grid_0_0), str_count);
+}
+
+// called when window is closed
+void on_window_main_destroy(){
+    gtk_main_quit();
+}
+
+

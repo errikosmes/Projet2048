@@ -289,6 +289,9 @@
                 <property name="ellipsize">middle</property>
                 <property name="width_chars">3</property>
                 <property name="max_width_chars">3</property>
+                <attributes>
+                  <attribute name="font-desc" value="TeX Gyre Adventor Bold 20"/>
+                </attributes>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -306,6 +309,9 @@
                 <property name="ellipsize">middle</property>
                 <property name="width_chars">3</property>
                 <property name="max_width_chars">3</property>
+                <attributes>
+                  <attribute name="font-desc" value="TeX Gyre Adventor Bold 20"/>
+                </attributes>
               </object>
               <packing>
                 <property name="left_attach">2</property>
@@ -323,6 +329,9 @@
                 <property name="ellipsize">middle</property>
                 <property name="width_chars">3</property>
                 <property name="max_width_chars">3</property>
+                <attributes>
+                  <attribute name="font-desc" value="TeX Gyre Adventor Bold 20"/>
+                </attributes>
               </object>
               <packing>
                 <property name="left_attach">3</property>
