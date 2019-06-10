@@ -42,6 +42,7 @@ int **GRILLE;
 int **TEST;
 int SCORE;
 
+GtkWidget *g_lbl_score;
 GtkWidget *g_lbl_grid_0_0;
 GtkWidget *g_lbl_grid_0_1;
 GtkWidget *g_lbl_grid_0_2;
@@ -71,6 +72,7 @@ int main(int argc, char *argv[]){
     gtk_builder_connect_signals(builder, NULL);
 
     // get pointers to the labels
+	g_lbl_score = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_score"));
     g_lbl_grid_0_0 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_0_0"));
     g_lbl_grid_0_1 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_0_1"));
     g_lbl_grid_0_2 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_0_2"));
@@ -147,6 +149,8 @@ gboolean on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data
         default:
             return FALSE; 
   	}
+
+	print_int_to_label(SCORE, g_lbl_score);
   	return FALSE;
 }
 
@@ -155,6 +159,7 @@ void on_btn_recommencer_clicked(){
     GRILLE = init_grille();
     affichage_grille(GRILLE);
     SCORE = 0;
+	print_int_to_label(SCORE, g_lbl_score);
 }
 
 // called when window is closed
@@ -524,7 +529,7 @@ void print_int_to_grid_label(int valeur, GtkWidget* label){
 	gtk_label_set_text(GTK_LABEL(label), str_label);
 }
 
-void print_int_to__label(int valeur, GtkWidget* label){
+void print_int_to_label(int valeur, GtkWidget* label){
 	char str_label[30] = {0};
 
 	sprintf(str_label, "%d", valeur);
