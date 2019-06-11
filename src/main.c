@@ -1,15 +1,8 @@
 #include "entete.h"
 
-
-
-
-
-
-
-
 int main(int argc, char *argv[]){
-    GtkBuilder      *builder;
-    GtkWidget       *window;
+    GtkBuilder *builder;
+    GtkWidget *window;
 
     gtk_init(&argc, &argv);
 
@@ -18,8 +11,8 @@ int main(int argc, char *argv[]){
     window = GTK_WIDGET(gtk_builder_get_object(builder, "window_main"));
     gtk_builder_connect_signals(builder, NULL);
 
-    // get pointers to the labels
-	  g_lbl_score = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_score"));
+    /*Initialisation des pointeurs des labels */
+    g_lbl_score = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_score"));
     g_lbl_grid_0_0 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_0_0"));
     g_lbl_grid_0_1 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_0_1"));
     g_lbl_grid_0_2 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_0_2"));
@@ -37,17 +30,12 @@ int main(int argc, char *argv[]){
     g_lbl_grid_3_2 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_3_2"));
     g_lbl_grid_3_3 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_3_3"));
 
-	srand(time(0));
     GRILLE = init_grille();
     affichage_grille(GRILLE);
-    SCORE = 0;
 
     g_object_unref(builder);
-
     g_signal_connect (G_OBJECT (window), "key_press_event", G_CALLBACK (on_key_press), NULL);
-
     gtk_widget_show(window);
-
     gtk_main();
 
     return 0;
