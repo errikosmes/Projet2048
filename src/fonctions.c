@@ -12,7 +12,6 @@ gboolean on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data
                 pop_up(GRILLE);
 						}
             affichage_grille(GRILLE);
-
             break;
 
 			/*lors de l'apuis sur la touche 'q' ou sur la fleche de gauche*/
@@ -130,12 +129,6 @@ void fusion (int** GRILLE,int i1, int j1, int i2, int j2){
 		return;
 	}
 
-	/*si on fait un dépalcement dans une case vide*/
-	if (GRILLE[i1][j1]==0){
-		GRILLE[i1][j1]=GRILLE[i2][j2];
-		GRILLE[i2][j2]=0;
-	}
-
 	/* sinon fait une fusion avec une autre case et augmentation du score*/
 	else {
     SCORE +=  GRILLE[i1][j1]*2;
@@ -143,6 +136,7 @@ void fusion (int** GRILLE,int i1, int j1, int i2, int j2){
 		GRILLE[i2][j2]=0;
 	}
 }
+
 
 
 /*-------------------------------------------------------------------*/
@@ -321,9 +315,9 @@ int etat_du_jeu(int** GRILLE, int** TEST){
 
 	/*Cas gagné*/
   	for(i=0;i<4;i++){
-		for(j=0;j<4;j++){
-	  		if (GRILLE[i][j] == 2048) return 1;
-		}
+  		for(j=0;j<4;j++){
+  	  	if (GRILLE[i][j] == 2048) return 1;
+  		}
 	}
 
 	/*Cas perdu*/
