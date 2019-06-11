@@ -426,6 +426,7 @@ void free_test(int** TEST){
 	free(TEST);
 }
 
+/*fonction qui affiche le numéro ou  rien si c'est 0 dans la case de la grille de l'affichage graphique */
 void print_int_to_grid_label(int valeur, GtkWidget* label){
 	char str_label[30] = {0};
 
@@ -434,6 +435,7 @@ void print_int_to_grid_label(int valeur, GtkWidget* label){
 	gtk_label_set_text(GTK_LABEL(label), str_label);
 }
 
+/*fonction qui affiche le score dasn l'affichage graphique */
 void print_int_to_label(int valeur, GtkWidget* label){
 	char str_label[30] = {0};
 
