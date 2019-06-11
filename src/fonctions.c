@@ -138,9 +138,9 @@ void fusion (int** GRILLE,int i1, int j1, int i2, int j2){
 
 	/* sinon fait une fusion avec une autre case et augmentation du score*/
 	else {
+    SCORE +=  GRILLE[i1][j1]*2;
 		GRILLE[i1][j1]=GRILLE[i2][j2]+GRILLE[i1][j1];
 		GRILLE[i2][j2]=0;
-		SCORE +=  GRILLE[i1][j1];
 	}
 }
 
