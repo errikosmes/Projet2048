@@ -12,7 +12,7 @@ gboolean on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data
                 pop_up(GRILLE);
 						}
             affichage_grille(GRILLE);
-			
+
             break;
 
 			/*lors de l'apuis sur la touche 'q' ou sur la fleche de gauche*/
@@ -51,11 +51,11 @@ gboolean on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data
 
 	if (etat_du_jeu(GRILLE, TEST) == 1){
 		fenetre_gagne();
-	} 
+	}
 	else if (etat_du_jeu(GRILLE, TEST) == -1){
 		fenetre_perdu();
 	}
- 
+
 	print_int_to_label(SCORE, g_lbl_score);
   	return FALSE;
 }
@@ -81,11 +81,11 @@ int** init_grille(){
 
 	srand(time(0));
 	SCORE = 0;
-	
+
 	for(i=0;i<4;i++){
 		GRILLE[i]=(int*)malloc((4)*sizeof(int));
 	}
-	
+
 	for(i=0;i<4;i++){
 		for(j=0;j<4;j++){
 			GRILLE[i][j]=0;
@@ -100,7 +100,7 @@ int** init_grille(){
 
 void affichage_grille(int** GRILLE){
 
-  	print_int_to_grid_label(GRILLE[0][0], g_lbl_grid_0_0);
+  print_int_to_grid_label(GRILLE[0][0], g_lbl_grid_0_0);
 	print_int_to_grid_label(GRILLE[0][1], g_lbl_grid_0_1);
 	print_int_to_grid_label(GRILLE[0][2], g_lbl_grid_0_2);
 	print_int_to_grid_label(GRILLE[0][3], g_lbl_grid_0_3);
@@ -132,9 +132,9 @@ void fusion (int** GRILLE,int i1, int j1, int i2, int j2){
 
 	/* sinon fait une fusion avec une autre case et augmentation du score*/
 	else {
+    SCORE +=  GRILLE[i1][j1]*2;
 		GRILLE[i1][j1]=GRILLE[i2][j2]+GRILLE[i1][j1];
 		GRILLE[i2][j2]=0;
-		SCORE +=  GRILLE[i1][j1];
 	}
 }
 
