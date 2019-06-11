@@ -1,8 +1,8 @@
 #include "entete.h"
 
 int main(int argc, char *argv[]){
-    GtkBuilder      *builder;
-    GtkWidget       *window;
+    GtkBuilder *builder;
+    GtkWidget *window;
 
     gtk_init(&argc, &argv);
 
@@ -12,7 +12,7 @@ int main(int argc, char *argv[]){
     gtk_builder_connect_signals(builder, NULL);
 
     /*Initialisation des pointeurs des labels */
-	g_lbl_score = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_score"));
+    g_lbl_score = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_score"));
     g_lbl_grid_0_0 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_0_0"));
     g_lbl_grid_0_1 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_0_1"));
     g_lbl_grid_0_2 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_0_2"));

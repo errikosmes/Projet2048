@@ -34,12 +34,12 @@ int** init_test();
 void free_test(int** TEST);
 void print_int_to_label(int valeur, GtkWidget* label);
 void print_int_to_grid_label(int valeur, GtkWidget* label);
-
+void fenetre_gagne();
+void fenetre_perdu();
 
 int **GRILLE;
 int **TEST;
 int SCORE;
-
 
 GtkWidget *g_lbl_score;
 GtkWidget *g_lbl_grid_0_0;

@@ -5,13 +5,14 @@ gboolean on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data
 
     switch (event->keyval){
 			/*lors de l'apuis sur la touche 'z' ou sur la fleche du haut*/
-				case GDK_KEY_Up:
+		case GDK_KEY_Up:
         case GDK_KEY_z:
             if (deplacement_possible_haut(GRILLE,TEST)){
 								deplacement_haut(GRILLE, TEST);
                 pop_up(GRILLE);
 						}
             affichage_grille(GRILLE);
+			
             break;
 
 			/*lors de l'apuis sur la touche 'q' ou sur la fleche de gauche*/
@@ -49,12 +50,12 @@ gboolean on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data
   	}
 
 	if (etat_du_jeu(GRILLE, TEST) == 1){
-		/*Vous avez gagné*/
+		fenetre_gagne();
 	} 
 	else if (etat_du_jeu(GRILLE, TEST) == -1){
-		/*Vous avez perdu*/
+		fenetre_perdu();
 	}
-
+ 
 	print_int_to_label(SCORE, g_lbl_score);
   	return FALSE;
 }
@@ -440,11 +441,26 @@ void print_int_to_label(int valeur, GtkWidget* label){
 	gtk_label_set_text(GTK_LABEL(label), str_label);
 }
 
-void fenetre_popup(){
+void fenetre_gagne(){
+	GtkBuilder *builder;
+    GtkWidget *window_gagne;
+
 	builder = gtk_builder_new();
     gtk_builder_add_from_file (builder, "glade/window_main.glade", NULL);
-    window = GTK_WIDGET(gtk_builder_get_object(builder, "window_main"));
+    window_gagne = GTK_WIDGET(gtk_builder_get_object(builder, "window_gagne"));
     gtk_builder_connect_signals(builder, NULL);
+	g_object_unref(builder);
+	gtk_widget_show(window_gagne);
+}
 
-	gtk_widget_show(window);
+void fenetre_perdu(){
+	GtkBuilder *builder;
+    GtkWidget *window_perdu;
+
+	builder = gtk_builder_new();
+    gtk_builder_add_from_file (builder, "glade/window_main.glade", NULL);
+    window_perdu = GTK_WIDGET(gtk_builder_get_object(builder, "window_perdu"));
+    gtk_builder_connect_signals(builder, NULL);
+	g_object_unref(builder);
+	gtk_widget_show(window_perdu);
 }
