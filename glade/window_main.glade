@@ -628,7 +628,6 @@
     <property name="default_height">260</property>
     <property name="type_hint">dialog</property>
     <property name="attached_to">window_main</property>
-    <signal name="activate-default" handler="on_gtk_dialog_activate" swapped="no"/>
     <child>
       <placeholder/>
     </child>
