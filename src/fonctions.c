@@ -48,6 +48,13 @@ gboolean on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data
             return FALSE;
   	}
 
+	if (etat_du_jeu(GRILLE, TEST) == 1){
+		/*Vous avez gagné*/
+	} 
+	else if (etat_du_jeu(GRILLE, TEST) == -1){
+		/*Vous avez perdu*/
+	}
+
 	print_int_to_label(SCORE, g_lbl_score);
   	return FALSE;
 }
@@ -68,26 +75,31 @@ void on_window_main_destroy(){
 int** init_grille(){
   /*Fonction initialisant la GRILLE avec deux nombres (2 ou 4) et des 0 ailleurs*/
 
-  int** GRILLE=(int**)malloc((4)*sizeof(int*));
-  int i,j;
+	int** GRILLE=(int**)malloc((4)*sizeof(int*));
+	int i,j;
+
+	srand(time(0));
+	SCORE = 0;
+	
 	for(i=0;i<4;i++){
-	GRILLE[i]=(int*)malloc((4)*sizeof(int));
+		GRILLE[i]=(int*)malloc((4)*sizeof(int));
 	}
-  for(i=0;i<4;i++){
-	for(j=0;j<4;j++){
-	    GRILLE[i][j]=0;
+	
+	for(i=0;i<4;i++){
+		for(j=0;j<4;j++){
+			GRILLE[i][j]=0;
+		}
 	}
-  }
 
-    pop_up(GRILLE);
-    pop_up(GRILLE);
+	pop_up(GRILLE);
+	pop_up(GRILLE);
 
-  return GRILLE;
+	return GRILLE;
 }
 
 void affichage_grille(int** GRILLE){
 
-  print_int_to_grid_label(GRILLE[0][0], g_lbl_grid_0_0);
+  	print_int_to_grid_label(GRILLE[0][0], g_lbl_grid_0_0);
 	print_int_to_grid_label(GRILLE[0][1], g_lbl_grid_0_1);
 	print_int_to_grid_label(GRILLE[0][2], g_lbl_grid_0_2);
 	print_int_to_grid_label(GRILLE[0][3], g_lbl_grid_0_3);
@@ -426,4 +438,13 @@ void print_int_to_label(int valeur, GtkWidget* label){
 
 	sprintf(str_label, "%d", valeur);
 	gtk_label_set_text(GTK_LABEL(label), str_label);
+}
+
+void fenetre_popup(){
+	builder = gtk_builder_new();
+    gtk_builder_add_from_file (builder, "glade/window_main.glade", NULL);
+    window = GTK_WIDGET(gtk_builder_get_object(builder, "window_main"));
+    gtk_builder_connect_signals(builder, NULL);
+
+	gtk_widget_show(window);
 }
