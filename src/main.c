@@ -19,20 +19,20 @@ int main(int argc, char *argv[]){
     gtk_builder_connect_signals(builder, NULL);
 
     // get pointers to the labels
-	g_lbl_score = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_score"));
+	  g_lbl_score = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_score"));
     g_lbl_grid_0_0 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_0_0"));
     g_lbl_grid_0_1 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_0_1"));
     g_lbl_grid_0_2 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_0_2"));
     g_lbl_grid_0_3 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_0_3"));
-	g_lbl_grid_1_0 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_1_0"));
+	  g_lbl_grid_1_0 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_1_0"));
     g_lbl_grid_1_1 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_1_1"));
     g_lbl_grid_1_2 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_1_2"));
     g_lbl_grid_1_3 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_1_3"));
-	g_lbl_grid_2_0 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_2_0"));
+	  g_lbl_grid_2_0 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_2_0"));
     g_lbl_grid_2_1 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_2_1"));
     g_lbl_grid_2_2 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_2_2"));
     g_lbl_grid_2_3 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_2_3"));
-	g_lbl_grid_3_0 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_3_0"));
+	  g_lbl_grid_3_0 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_3_0"));
     g_lbl_grid_3_1 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_3_1"));
     g_lbl_grid_3_2 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_3_2"));
     g_lbl_grid_3_3 = GTK_WIDGET(gtk_builder_get_object(builder, "lbl_grid_3_3"));

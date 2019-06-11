@@ -52,7 +52,7 @@ gboolean on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data
   	return FALSE;
 }
 
-// called when button is clicked
+/* called when button is clicked */
 void on_btn_recommencer_clicked(){
     GRILLE = init_grille();
     affichage_grille(GRILLE);
@@ -60,7 +60,7 @@ void on_btn_recommencer_clicked(){
 	print_int_to_label(SCORE, g_lbl_score);
 }
 
-// called when window is closed
+/* called when window is closed */
 void on_window_main_destroy(){
     gtk_main_quit();
 }
@@ -71,12 +71,12 @@ int** init_grille(){
   int** GRILLE=(int**)malloc((4)*sizeof(int*));
   int i,j;
 	for(i=0;i<4;i++){
-	GRILLE[i]=(int*)malloc((4)*sizeof(int));
+		GRILLE[i]=(int*)malloc((4)*sizeof(int));
 	}
   for(i=0;i<4;i++){
-	for(j=0;j<4;j++){
-	    GRILLE[i][j]=0;
-	}
+		for(j=0;j<4;j++){
+		    GRILLE[i][j]=0;
+		}
   }
 
     pop_up(GRILLE);
@@ -86,6 +86,8 @@ int** init_grille(){
 }
 
 void affichage_grille(int** GRILLE){
+	/*fonction sui affiche la grille suir l'interfacte graphique
+	(qui associe le numéro de la grille à la case de l'affichage)*/
 
   print_int_to_grid_label(GRILLE[0][0], g_lbl_grid_0_0);
 	print_int_to_grid_label(GRILLE[0][1], g_lbl_grid_0_1);
@@ -110,18 +112,20 @@ void affichage_grille(int** GRILLE){
 }
 
 void fusion (int** GRILLE,int i1, int j1, int i2, int j2){
-	/* cette fonction met la case deux dans la case 1. si dans la case 1 il y a une 0, on décale juste le nombre, sinon on le multiplie par deux*/
+	/* cette fonction met 0 dans la case de donner par l'indice 2 et additione
+	le nombre des deux cases dans celle donner sur l'indice numéro 2 */
 
-	/*si la fusion n'est pas possible*/
+	/*si deplacement n'est pas possible*/
 	if (GRILLE[i1][j1]!=0 && GRILLE[i1][j1]!=GRILLE[i2][j2]){
 		return;
 	}
 
-	/* sinon fait une fusion avec une autre case et augmentation du score*/
+	/* sinon on effectue le déplacement ou la fusion si besoin*/
 	else {
+		/*si il y a une fusion, on augmente le score*/
+		if (GRILLE[i1][j1]!=0) SCORE +=  GRILLE[i2][j2]+GRILLE[i1][j1];
 		GRILLE[i1][j1]=GRILLE[i2][j2]+GRILLE[i1][j1];
-		GRILLE[i2][j2]=0;
-		SCORE +=  GRILLE[i1][j1];
+		GRILLE[i2][j2]=0;;
 	}
 }
 
@@ -321,7 +325,6 @@ int etat_du_jeu(int** GRILLE, int** TEST){
 
 
 /*Fonction qui retourne 1 si le déplacement à droite est possible, 0 sinon*/
-
 int deplacement_possible_gauche(int** GRILLE,int** TEST){
   int** COPIE=NULL;
   COPIE=cree_copie(GRILLE);
@@ -331,7 +334,6 @@ int deplacement_possible_gauche(int** GRILLE,int** TEST){
 
 
 /*Fonction qui retourne 1 si le déplacement à droite est possible, 0 sinon*/
-
 int deplacement_possible_droite(int** GRILLE,int** TEST){
   int** COPIE=NULL;
   COPIE=cree_copie(GRILLE);
@@ -340,7 +342,6 @@ int deplacement_possible_droite(int** GRILLE,int** TEST){
 }
 
 /*Fonction qui retourne 1 si le déplacement à haut est possible, 0 sinon*/
-
 int deplacement_possible_haut(int** GRILLE,int** TEST){
   int** COPIE=NULL;
   COPIE=cree_copie(GRILLE);
@@ -350,7 +351,6 @@ int deplacement_possible_haut(int** GRILLE,int** TEST){
 
 
 /*Fonction qui retourne 1 si le déplacement à bas est possible, 0 sinon*/
-
 int deplacement_possible_bas(int** GRILLE, int** TEST){
   int** COPIE=NULL;
   COPIE=cree_copie(GRILLE);
@@ -359,14 +359,13 @@ int deplacement_possible_bas(int** GRILLE, int** TEST){
 }
 
 /*Fonction qui retourne 1 si les deux matrices sont égales, 0 sinon*/
-
 int matrices_egales(int**COPIE,int** GRILLE){
   int i,j;
   int b=1;
   for(i=0;i<4;i++){
     for(j=0;j<4;j++){
       if(COPIE[i][j]!=GRILLE[i][j]){
-	b=0;
+				b=0;
       }
     }
   }
@@ -375,7 +374,6 @@ int matrices_egales(int**COPIE,int** GRILLE){
 
 
 /*Fonction qui renvoie une matrice copie de celle en paramètre*/
-
 int** cree_copie(int** GRILLE){
   int** COPIE=(int**)malloc((4)*sizeof(int*));
   int i,j;
@@ -392,6 +390,7 @@ int** cree_copie(int** GRILLE){
 
 
 int** init_test(){
+	/*fonction qui cree une matrice permetant de vérifier si une case à deja fusioner à ce tour*/
 	int** TEST=(int**)malloc((4)*sizeof(int*));
 	int i,j;
 	for(i=0;i<4;i++){
@@ -406,6 +405,7 @@ int** init_test(){
 }
 
 void free_test(int** TEST){
+	/*fonction qui libere la mémoire d'une matrice 4*4*/
 	int i;
 		for(i=0;i<4;i++){
 			free(TEST[i]);
@@ -413,14 +413,18 @@ void free_test(int** TEST){
 	free(TEST);
 }
 
+
+/*fonction qui affiche le numéro ou  rien si c'est 0 dans la case de la grille de l'affichage graphique */
 void print_int_to_grid_label(int valeur, GtkWidget* label){
 	char str_label[30] = {0};
 
 	sprintf(str_label, "%d", valeur);
-    if (strcmp(str_label,"0") == 0) strcpy(str_label, " ");
+  if (strcmp(str_label,"0") == 0) strcpy(str_label, " ");
 	gtk_label_set_text(GTK_LABEL(label), str_label);
 }
 
+
+/*fonction qui affiche le score dasn l'affichage graphique */
 void print_int_to_label(int valeur, GtkWidget* label){
 	char str_label[30] = {0};
 
