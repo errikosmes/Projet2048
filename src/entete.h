@@ -40,6 +40,7 @@ void fenetre_perdu();
 int **GRILLE;
 int **TEST;
 int SCORE;
+int SCORE_INT;
 
 GtkWidget *g_lbl_score;
 GtkWidget *g_lbl_grid_0_0;

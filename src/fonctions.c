@@ -8,7 +8,9 @@ gboolean on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data
 		case GDK_KEY_Up:
         case GDK_KEY_z:
             if (deplacement_possible_haut(GRILLE,TEST)){
+                SCORE_INT = 0;
 								deplacement_haut(GRILLE, TEST);
+                SCORE += SCORE_INT;
                 pop_up(GRILLE);
 						}
             affichage_grille(GRILLE);
@@ -18,7 +20,9 @@ gboolean on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data
         case GDK_KEY_q:
         case GDK_KEY_Left:
             if (deplacement_possible_gauche(GRILLE,TEST)){
+                SCORE_INT = 0;
 								deplacement_gauche(GRILLE, TEST);
+                SCORE += SCORE_INT;
                 pop_up(GRILLE);
 						}
             affichage_grille(GRILLE);
@@ -28,7 +32,9 @@ gboolean on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data
         case GDK_KEY_s:
         case GDK_KEY_Down:
             if (deplacement_possible_bas(GRILLE,TEST)){
+                SCORE_INT = 0;
 								deplacement_bas(GRILLE, TEST);
+                SCORE += SCORE_INT;
                 pop_up(GRILLE);
 						}
             affichage_grille(GRILLE);
@@ -38,7 +44,9 @@ gboolean on_key_press (GtkWidget *widget, GdkEventKey *event, gpointer user_data
         case GDK_KEY_d:
         case GDK_KEY_Right:
             if (deplacement_possible_droite(GRILLE,TEST)){
+              SCORE_INT = 0;
 							deplacement_droite(GRILLE,TEST);
+              SCORE += SCORE_INT;
               pop_up(GRILLE);
 						}
             affichage_grille(GRILLE);
@@ -64,6 +72,7 @@ void on_btn_recommencer_clicked(){
     GRILLE = init_grille();
     affichage_grille(GRILLE);
     SCORE = 0;
+    SCORE_INT = 0;
 	print_int_to_label(SCORE, g_lbl_score);
 }
 
@@ -131,7 +140,8 @@ void fusion (int** GRILLE,int i1, int j1, int i2, int j2){
 
 	/* sinon fait une fusion avec une autre case et augmentation du score*/
 	else {
-    SCORE +=  GRILLE[i1][j1]*2;
+    printf("*************************************\n" );
+    SCORE_INT +=  GRILLE[i1][j1]*2;
 		GRILLE[i1][j1]=GRILLE[i2][j2]+GRILLE[i1][j1];
 		GRILLE[i2][j2]=0;
 	}
